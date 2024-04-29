@@ -1,0 +1,41 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+  "
+>
+  <app-text-input (usernameChange)="receiveUsername($event)"></app-text-input>
+  <br />
+  <br />
+  <button class="submit-button" (click)="onSubmit()">Inspect</button>
+</div>
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+  "
+>
+  <!-- <app-error *ngIf="errorShown"></app-error> -->
+  <app-error-not-found *ngIf="errorNotFound"></app-error-not-found>
+  <app-error-no-username *ngIf="errorNoUsername"></app-error-no-username>
+
+  <app-card
+    [profilePicture]="profilePicture"
+    [bio]="bio"
+    [gitUsername]="gitUsername"
+    [name]="name"
+    [location]="location"
+    [titles]="titles"
+    [favLang]="favLang"
+    [totalStars]="totalStars"
+    [highestStarCount]="highestStarCount"
+    [perfectRepos]="perfectRepos"
+    [followers]="followers"
+    [following]="following"
+    *ngIf="cardShown"
+  ></app-card>
+</div>

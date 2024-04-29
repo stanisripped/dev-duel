@@ -1,0 +1,65 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+  "
+>
+  <div style="display: flex; flex-direction: row">
+    <app-text-input
+      (usernameChange)="receiveUsernameOne($event)"
+    ></app-text-input>
+
+    <p style="margin: 2vh 20px">VS</p>
+    <app-text-input
+      (usernameChange)="receiveUsernameTwo($event)"
+    ></app-text-input>
+  </div>
+  <br />
+  <br />
+  <button class="submit-button" (click)="onSubmit()">Duel</button>
+  <app-error-not-found *ngIf="errorNotFound"></app-error-not-found>
+  <app-error-no-username *ngIf="errorNoUsername"></app-error-no-username>
+
+  <div class="row">
+    <div>
+      <app-win-duel *ngIf="winOne"></app-win-duel>
+      <app-lose-duel *ngIf="loseOne"></app-lose-duel>
+      <app-card
+        [profilePicture]="profilePictureOne"
+        [bio]="bioOne"
+        [gitUsername]="gitUsernameOne"
+        [name]="nameOne"
+        [location]="locationOne"
+        [titles]="titlesOne"
+        [favLang]="favLangOne"
+        [totalStars]="totalStarsOne"
+        [highestStarCount]="highestStarCountOne"
+        [perfectRepos]="perfectReposOne"
+        [followers]="followersOne"
+        [following]="followingOne"
+        *ngIf="showCards"
+      ></app-card>
+    </div>
+    <div>
+      <app-win-duel *ngIf="winTwo"></app-win-duel>
+      <app-lose-duel *ngIf="loseTwo"></app-lose-duel>
+      <app-card
+        [profilePicture]="profilePictureTwo"
+        [bio]="bioTwo"
+        [gitUsername]="gitUsernameTwo"
+        [name]="nameTwo"
+        [location]="locationTwo"
+        [titles]="titlesTwo"
+        [favLang]="favLangTwo"
+        [totalStars]="totalStarsTwo"
+        [highestStarCount]="highestStarCountTwo"
+        [perfectRepos]="perfectReposTwo"
+        [followers]="followersTwo"
+        [following]="followingTwo"
+        *ngIf="showCards"
+      ></app-card>
+    </div>
+  </div>
+</div>
